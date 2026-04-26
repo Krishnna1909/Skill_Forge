@@ -116,12 +116,6 @@ function AssessContent() {
       const data = await res.json();
       console.log('API response:', data);
 
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: data.message || 'Thinking...',
-        skillBadge: data.nextSkill || data.currentSkill,
-      }]);
-
       if (data.assessment) {
         const newAssessments = [...assessments, data.assessment];
         setAssessments(newAssessments);
